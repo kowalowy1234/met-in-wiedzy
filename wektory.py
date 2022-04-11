@@ -2,18 +2,6 @@ import numpy as np
 import math
 
 
-def open_file(filename):
-    lista = []
-    with open(filename, 'r') as auData:
-        for line in auData:
-            kolekcja = line.replace('\n', '').split()
-            wynik = list(map(lambda e: float(e), kolekcja))
-            lista.append(wynik)
-    for i in lista:
-        i.pop()
-    return lista
-
-
 def euclidean_distance_vectors(listA, listB, cut=False):
     if cut == True:
         listA = listA[:-1]
@@ -25,31 +13,50 @@ def euclidean_distance_vectors(listA, listB, cut=False):
 
 
 def mean(list):
-    sum = np.zeros(len(list[0]))
-    for i in list:
-        sum += np.array(i)
-    return sum / len(list)
-
-
-def st_deviation(list):
-    sum = np.zeros(len(list[0]))
-    mean_value = mean(list)
-    for i in list:
-        sum += (np.array(i) - mean_value) ** 2
-
-    return sum / len(list)**(1/2)
+    vectorOnes = np.ones(len(list))
+    v1 = np.array(list)
+    tmp = np.dot(list, vectorOnes)
+    mean_ = tmp / len(list)
+    return mean_
 
 
 def variation(list):
-    sum = np.zeros(len(list[0]))
-    mean_value = mean(list)
-    for i in list:
-        sum += (np.array(i) - mean_value) ** 2
-    return sum / len(list)-1
+    mean_ = mean(list)
+    v1 = np.array(list)
+    vectorOnes = np.ones(len(list))
+    v2 = v1 - mean_ * vectorOnes
+    c = np.dot(v2, v2)
+    return c / len(list)
 
 
-list = open_file('australian.dat')
-dist_0_1 = euclidean_distance_vectors(list[0], list[1])
-mean_ = mean(list)
-st_deviation_ = st_deviation(list)
-variation_ = variation(list)
+def st_deviation():
+    return math.sqrt(variation(list))
+
+
+list = [1, 2, 5, 6]
+print(mean(list))
+print(st_deviation())
+# print(variation(list))
+
+# def st_deviation(list):
+#     sum = np.zeros(len(list[0]))
+#     mean_value = mean(list)
+#     for i in list:
+#         sum += (np.array(i) - mean_value) ** 2
+#
+#     return sum / len(list)**(1/2)
+#
+#
+# def variation(list):
+#     sum = np.zeros(len(list[0]))
+#     mean_value = mean(list)
+#     for i in list:
+#         sum += (np.array(i) - mean_value) ** 2
+#     return sum / len(list)-1
+#
+#
+# list = open_file('australian.dat')
+# dist_0_1 = euclidean_distance_vectors(list[0], list[1])
+# mean_ = mean(list)
+# st_deviation_ = st_deviation(list)
+# variation_ = variation(list)
