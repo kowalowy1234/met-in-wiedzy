@@ -34,7 +34,7 @@ def rectangle_method(start_range, end_range, points):
     dx = (bases[-1] - bases[0]) / points
     integral = 0
 
-    # Dla każdego punktu wyznaczamy wartość funkcji w tum punkcie
+    # Dla każdego punktu wyznaczamy wartość funkcji w tym punkcie
     # i obliczamy sumę iloczynów wyznaczonych wartości (wysokość prostokąta)
     # przez długość każdej podstawy (szerokość prostokąta)
     # co daje nam sumę pól prostokątnych, tym samym przybliżoną wartość całki oznaczonej
