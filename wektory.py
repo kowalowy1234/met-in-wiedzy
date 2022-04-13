@@ -34,29 +34,7 @@ def st_deviation():
 
 
 list = [1, 2, 5, 6]
-print(mean(list))
-print(st_deviation())
-# print(variation(list))
-
-# def st_deviation(list):
-#     sum = np.zeros(len(list[0]))
-#     mean_value = mean(list)
-#     for i in list:
-#         sum += (np.array(i) - mean_value) ** 2
-#
-#     return sum / len(list)**(1/2)
-#
-#
-# def variation(list):
-#     sum = np.zeros(len(list[0]))
-#     mean_value = mean(list)
-#     for i in list:
-#         sum += (np.array(i) - mean_value) ** 2
-#     return sum / len(list)-1
-#
-#
-# list = open_file('australian.dat')
-# dist_0_1 = euclidean_distance_vectors(list[0], list[1])
-# mean_ = mean(list)
-# st_deviation_ = st_deviation(list)
-# variation_ = variation(list)
+print("Wektor: "+str(list))
+print("Średnia: " +str(mean(list)))
+print("Wariancja: " +str(variation(list)))
+print("Odchylenie standardowe: " +str(st_deviation()))
