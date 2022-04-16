@@ -4,7 +4,6 @@ import numpy
 
 def fun(x):
     return x
-    # * x + 3
 
 
 def monte_carlo_method(start_range, end_range, points):
