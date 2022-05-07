@@ -35,11 +35,16 @@ def generate_A(Q, R):
     return np.dot(np.transpose(Q), R)
 
 
+def wartWlasne(Q, A):
+    Qinv = np.linalg.inv(Q)
+    return np.dot(np.dot(Qinv, A), Q)
+
+
 A = np.array([
-    [1, 1, 0],
+    [1, 0, 1],
     [0, 1, 1],
+    [1, 1, 0]
 ])
 Q = generate_Q(A)
 R = generate_R(Q, A)
-print(np.transpose(Q))
-print(R)
+print(wartWlasne(Q, A))
