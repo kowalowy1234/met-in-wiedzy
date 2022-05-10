@@ -38,3 +38,4 @@ A = np.array([
 ])
 
 eig_values = get_eigenvalues(A)
+print(eig_values)
