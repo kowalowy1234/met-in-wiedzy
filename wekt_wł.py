@@ -22,13 +22,15 @@ def result(A_):
     return eigenvalues
 
 
-def get_eigenvalues(A_):
+def get_eigenvalues_eigenvectors(A_):
     Q_, R_ = np.linalg.qr(A)
     next_A = np.round(np.dot(Q_, R_))
+    eigenvectors = Q_
     while not check_if_upper_triangular(next_A):
         next_A = np.dot(np.dot(np.transpose(Q_), next_A), Q_)
         Q_, R_ = np.linalg.qr(next_A)
-    return result(next_A)
+        eigenvectors = (np.dot(eigenvectors, Q_))
+    return result(next_A), np.round(eigenvectors)
 
 
 A = np.array([
@@ -37,5 +39,8 @@ A = np.array([
     [0, 1, 1]
 ])
 
-eig_values = get_eigenvalues(A)
-print(eig_values)
+eigenvalues, eigenvectors = get_eigenvalues_eigenvectors(A)
+
+np.set_printoptions(suppress=True)
+print(eigenvalues, "\n")
+print(eigenvectors)
