@@ -36,7 +36,7 @@ B = np.array([
 
 
 x_a = np.array([8, 6, 2, 3, 4, 6, 6, 5])
-ort_normal = diag_norm(B)
-print(np.round(ort_normal, 2))
-x_b = np.round(np.dot(ort_normal, x_a), 2)
+orth_normal = diag_norm(B)
+print(np.round(orth_normal, 1))
+x_b = np.round(np.dot(orth_normal, x_a), 2)
 print(x_b)
