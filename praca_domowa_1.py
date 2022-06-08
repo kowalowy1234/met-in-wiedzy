@@ -21,12 +21,6 @@ with open('australian.dat', 'r') as auData:
         wynik = list(map(lambda e: float(e), kolekcja))
         lista.append(wynik)
 
-with open('australian.dat') as auData:
-    for line in auData:
-        kolekcja = line.replace('\n', '').split()
-        wynik = list(map(lambda e: float(e), kolekcja))
-        lista.append(wynik)
-
 # tworzę pustą listę potrzebną do stworzenia listy unikalnych kluczy
 keyes = []
 

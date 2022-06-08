@@ -22,5 +22,6 @@ list = [
     [8, 3],
 ]
 
+B = linear_regression(list)
 
-print(linear_regression(list))
+print('y = ' + str(B[0]) + ' + ' + str(B[1]) + 'x')
